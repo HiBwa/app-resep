@@ -18,16 +18,33 @@
     <link rel="stylesheet" href="{{ asset('template') }}/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('template') }}/images/favicon.png" />
+    <style>
+        .img-container {
+            width: 100px;
+            /* Sesuaikan dengan lebar yang diinginkan */
+            height: auto;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
 </head>
 
 <body>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_settings-panel.html -->
-            <!-- partial:partials/_navbar.html -->
+
             @include('layouts.header')
             @include('layouts.sidebar')
-            @yield('konten')
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @include('layouts.notif')
+                    @yield('konten')
+                </div>
+            </div>
         </div>
     </div>
     <!-- container-scroller -->

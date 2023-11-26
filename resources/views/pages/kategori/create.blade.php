@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <form action="{{ route('kategori.update' }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('kategori.store') }}" method="POST" enctype="multipart/form-data">
                         @method('POST')
                         @csrf
                         <div class="form-group row mb-5">

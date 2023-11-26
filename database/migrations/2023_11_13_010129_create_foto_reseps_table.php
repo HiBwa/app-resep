@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_resep');
             $table->string('foto');
-            $table->string('deskripsi');
             $table->timestamps();
         });
     }

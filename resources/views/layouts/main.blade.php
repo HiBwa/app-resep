@@ -18,18 +18,7 @@
     <link rel="stylesheet" href="{{ asset('template') }}/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('template') }}/images/favicon.png" />
-    <style>
-        .img-container {
-            width: 100px;
-            /* Sesuaikan dengan lebar yang diinginkan */
-            height: auto;
-        }
 
-        .img-container img {
-            width: 100%;
-            height: auto;
-        }
-    </style>
 
 </head>
 
@@ -59,7 +48,7 @@
     <!-- inject:js -->
     <script src="{{ asset('template') }}/js/off-canvas.js"></script>
     <script src="{{ asset('template') }}/js/hoverable-collapse.js"></script>
-    {{-- <script src="{{ asset('template') }}/js/template.js"></script> --}}
+    <script src="{{ asset('template') }}/js/template.js"></script>
     <script src="{{ asset('template') }}/js/settings.js"></script>
     <script src="{{ asset('template') }}/js/todolist.js"></script>
     <!-- endinject -->

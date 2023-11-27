@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FotoResep;
+use App\Models\Kategori;
 use App\Models\Resep;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,10 @@ class ResepController extends Controller
      */
     public function create()
     {
-        return view('pages.resep.create');
+        $kategori = Kategori::all();
+        return view('pages.resep.create', [
+            'kategori' => $kategori,
+        ]);
     }
 
     /**
@@ -61,6 +65,7 @@ class ResepController extends Controller
         $data = [
             'id_user'     => Auth::id(),
             'judul'     => $request->judul,
+            'id_kategori' => $request->id_kategori,
             'deskripsi'     => $request->deskripsi,
             'bahan'     => $request->bahan,
             'langkah'     => $request->langkah,
@@ -102,8 +107,10 @@ class ResepController extends Controller
     public function edit($id)
     {
         $data = Resep::find($id);
+        $kategori = Kategori::all();
         return view('pages.resep.edit', [
             'data' => $data,
+            'kategori' => $kategori,
         ]);
     }
 
@@ -125,6 +132,7 @@ class ResepController extends Controller
             'bahan'     => 'required',
             'langkah'     => 'required',
             'durasi'     => 'required',
+            'id_kategori'     => 'required',
         ]);
         //upload image
         $data = [

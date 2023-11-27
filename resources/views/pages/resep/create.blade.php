@@ -34,6 +34,17 @@
                             </div>
                         </div>
                         <div class="form-group row mb-5">
+                            <label class="col-form-label col-2 d-flex align-tems-center">Kategori</label>
+                            <div class="col-10">
+                                <select name="id_kategori" id="" class="form-control" required>
+                                    <option value="">Pilih Kategori</option>
+                                    @foreach ($kategori as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-5">
                             <label class="col-form-label col-2 d-flex align-tems-center">Cerita Masakan Ini</label>
                             <div class="col-10">
                                 <textarea name="deskripsi" class="form-control" placeholder="Cerita Dibalik Masakan ini" class="form-control-md"

@@ -30,17 +30,10 @@
                                     Judul Resep
                                 </th>
                                 <th>
-                                    Deskripsi
+                                    Kategori
                                 </th>
                                 <th>
                                     Durasi Masak
-                                </th>
-
-                                <th>
-                                    Bahan-Bahan
-                                </th>
-                                <th>
-                                    Langkah-Langkah
                                 </th>
                                 <th>
                                     Aksi
@@ -51,6 +44,7 @@
                             @foreach ($data as $item)
                                 @php
                                     $image = App\Models\FotoResep::where('id_resep', $item->id)->first();
+                                    $kategori = App\Models\Kategori::where('id', $item->id_kategori)->first();
                                 @endphp
                                 <tr>
                                     <td>
@@ -63,21 +57,17 @@
                                             style="    width: 132px;
                                             height: 111px;">
                                     <td>
-                                        {{ $item->judul }}
+                                        {{ Str::substr($item->judul, 0, 20) }}...
                                     </td>
                                     <td>
-                                        {{ Str::substr($item->deskripsi, 0, 20) }}...
+                                        {{ $kategori->nama_kategori }}
                                     </td>
                                     <td>
                                         {{ $item->durasi }} Menit
                                     </td>
                                     <td>
-                                        {{ Str::substr($item->bahan, 0, 20) }}...
-                                    </td>
-                                    <td>
-                                        {{ Str::substr($item->langkah, 0, 20) }}...
-                                    </td>
-                                    <td>
+                                        <a href="{{ route('resep.edit', $item->id) }}"
+                                            class="btn btn-success btn-sm">Show</a>
                                         <a href="{{ route('resep.edit', $item->id) }}"
                                             class="btn btn-primary btn-sm">Edit</a>
                                         <form action="{{ route('resep.destroy', $item->id) }}" method="POST"

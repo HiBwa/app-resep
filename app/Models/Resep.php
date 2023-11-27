@@ -11,6 +11,7 @@ class Resep extends Model
     protected $fillable = [
         'id_user',
         'judul',
+        'id_kategori',
         'deskripsi',
         'bahan',
         'langkah',
